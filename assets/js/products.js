@@ -64,7 +64,7 @@ const FASHION_PRODUCTS = [
     originalPrice: 620000,
     rating: 4.7,
     reviewsCount: 204,
-    image: 'https://images.unsplash.com/photo-1542272604-780c96856592?w=600&auto=format&fit=crop&q=80',
+    image: 'https://unsplash.com/photos/a-pair-of-jeans-sitting-on-top-of-a-white-surface-eoLn6faE5xk',
     badge: 'Giảm 20%',
     badgeColor: 'bg-indigo-600',
     sizes: ['29', '30', '31', '32', '34'],
