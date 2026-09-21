@@ -6,19 +6,7 @@ Website thương mại điện tử thời trang hiện đại tích hợp hệ 
 
 ## 🚀 Các Tính Năng Nổi Bật
 
-### 1. 🔐 Trang Đăng Nhập Phân Quyền (`index.html`)
-- **Đăng nhập với quyền Admin**:
-  - Tài khoản: `admin`
-  - Mật khẩu: `123456`
-  - ➔ Tự động chuyển hướng vào **Bảng Điều Khiển Quản Lý Doanh Thu** (`admin-dashboard.html`).
-- **Đăng nhập với quyền User**:
-  - Tài khoản: `user` (hoặc tên bất kỳ)
-  - Mật khẩu: bất kỳ
-  - ➔ Tự động chuyển hướng vào **Trang Chủ Mua Sắm Quần Áo** (`shop.html`).
-- **Nút Demo Quick Login**: Nhấp 1-click để trải nghiệm ngay quyền Admin hoặc User mà không cần gõ phím.
-- **Route Guard**: Ngăn chặn người dùng chưa xác thực hoặc User thông thường truy cập trang quản trị Admin.
-
-### 2. 📊 Bảng Điều Khiển Doanh Thu Quản Trị (`admin-dashboard.html`)
+### 1. 📊 Bảng Điều Khiển Doanh Thu Quản Trị (`admin-dashboard.html`)
 - **Thẻ chỉ số KPI tài chính**:
   - Tổng doanh thu tháng: 185.450.000₫ (+14.2%)
   - Tổng đơn hàng: 1.428 đơn (+8.5%)
@@ -29,7 +17,7 @@ Website thương mại điện tử thời trang hiện đại tích hợp hệ 
   - Biểu đồ tròn thể hiện tỷ trọng doanh số theo danh mục (Áo khoác, Áo sơ mi, Áo thun, Quần, Váy đầm).
 - **Quản lý đơn hàng & Top sản phẩm**: Bảng danh sách đơn hàng mới nhất với trạng thái xử lý sống động và danh mục thời trang bán chạy nhất.
 
-### 3. 🛍️ Cửa Hàng Thời Trang Quần Áo (`shop.html`)
+### 2. 🛍️ Cửa Hàng Thời Trang Quần Áo (`shop.html`)
 - Giao diện Lookbook chuẩn thời trang cao cấp 2026.
 - Bộ lọc danh mục tức thì: Áo sơ mi, Áo thun & Polo, Áo khoác & Blazer, Quần Jean/Tây, Váy đầm.
 - Ô tìm kiếm thời gian thực theo tên trang phục.
