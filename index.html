@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng Nhập - LUXE FASHION & ADMIN PORTAL</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-50 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
+
+  <!-- Container Box -->
+  <div class="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[620px] border border-gray-100">
+    
+    <!-- Cột trái: Visual Banner Thời trang & Thông điệp -->
+    <div class="lg:col-span-6 relative hidden lg:flex flex-col justify-between p-12 text-white bg-cover bg-center" style="background-image: linear-gradient(to top right, rgba(15, 23, 42, 0.92), rgba(30, 27, 75, 0.7)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200&auto=format&fit=crop&q=80');">
+      <!-- Logo thương hiệu -->
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+          <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>
+        </div>
+        <div>
+          <span class="text-2xl font-black tracking-wider text-white">LUXE</span>
+          <span class="text-xs tracking-widest text-indigo-300 block font-semibold">FASHION & SYSTEM</span>
+        </div>
+      </div>
+
+      <!-- Nội dung giữa -->
+      <div class="space-y-4 my-auto">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-medium text-indigo-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          Hệ thống thương mại điện tử 2026
+        </div>
+        <h2 class="text-3xl xl:text-4xl font-extrabold leading-tight">
+          Nền tảng mua sắm thời trang & quản trị doanh thu đa kênh
+        </h2>
+        <p class="text-gray-300 text-sm leading-relaxed max-w-md">
+          Trải nghiệm mua sắm trang phục xu hướng cho khách hàng và bộ công cụ phân tích số liệu tài chính chuyên sâu dành cho nhà quản trị.
+        </p>
+
+        <!-- Thẻ thống kê nổi -->
+        <div class="grid grid-cols-2 gap-4 pt-4">
+          <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <p class="text-xs text-indigo-200">Doanh thu tháng này</p>
+            <p class="text-xl font-bold mt-1 text-white">185.450.000₫</p>
+            <span class="text-[11px] text-emerald-400 font-semibold flex items-center gap-1 mt-0.5">
+              <i data-lucide="trending-up" class="w-3 h-3"></i> +14.2% tăng trưởng
+            </span>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <p class="text-xs text-indigo-200">Sản phẩm thời trang</p>
+            <p class="text-xl font-bold mt-1 text-white">2.500+ Items</p>
+            <span class="text-[11px] text-indigo-200 font-semibold flex items-center gap-1 mt-0.5">
+              <i data-lucide="check-circle-2" class="w-3 h-3"></i> 99.8% hài lòng
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer cột trái -->
+      <div class="text-xs text-gray-400 flex items-center justify-between border-t border-white/10 pt-4">
+        <span>© 2026 LUXE FASHION. All rights reserved.</span>
+        <span>Version 2.4.0</span>
+      </div>
+    </div>
+
+    <!-- Cột phải: Form Đăng nhập -->
+    <div class="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-center">
+      <div class="max-w-md w-full mx-auto space-y-6">
+        
+        <!-- Header form -->
+        <div>
+          <div class="lg:hidden flex items-center gap-2 mb-6">
+            <div class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white">
+              <i data-lucide="sparkles" class="w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-extrabold text-gray-900 tracking-wider">LUXE FASHION</span>
+          </div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">Đăng nhập tài khoản</h1>
+          <p class="text-sm text-gray-500 mt-2">Vui lòng nhập thông tin để truy cập cửa hàng hoặc bảng quản trị</p>
+        </div>
+
+        <!-- Thông báo lỗi (nếu có) -->
+        <div id="login-alert" class="hidden p-4 rounded-xl text-sm font-medium border animate-fade-in"></div>
+
+        <!-- Form nhập -->
+        <form id="login-form" class="space-y-4" onsubmit="handleLoginSubmit(event)">
+          <div>
+            <label for="username" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+              Tài khoản / Tên đăng nhập
+            </label>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
+                <i data-lucide="user" class="w-5 h-5"></i>
+              </span>
+              <input 
+                type="text" 
+                id="username" 
+                required 
+                placeholder="Nhập 'admin' hoặc 'user'"
+                class="w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition"
+              >
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1.5">
+              <label for="password" class="block text-xs font-bold uppercase tracking-wider text-gray-700">
+                Mật khẩu
+              </label>
+              <a href="#" class="text-xs font-medium text-indigo-600 hover:underline">Quên mật khẩu?</a>
+            </div>
+            <div class="relative">
+              <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
+                <i data-lucide="lock" class="w-5 h-5"></i>
+              </span>
+              <input 
+                type="password" 
+                id="password" 
+                required 
+                placeholder="Nhập mật khẩu"
+                class="w-full pl-11 pr-11 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition"
+              >
+              <button 
+                type="button" 
+                onclick="togglePasswordVisibility()" 
+                class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-gray-400 hover:text-gray-600"
+              >
+                <i id="eye-icon" data-lucide="eye" class="w-5 h-5"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-sm">
+            <label class="flex items-center gap-2 cursor-pointer select-none text-gray-600">
+              <input type="checkbox" checked class="w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500 border-gray-300">
+              <span>Ghi nhớ đăng nhập</span>
+            </label>
+          </div>
+
+          <button 
+            type="submit" 
+            id="submit-btn"
+            class="w-full py-3.5 px-4 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-bold rounded-xl shadow-lg shadow-indigo-500/25 transition duration-200 flex items-center justify-center gap-2"
+          >
+            <span>Đăng Nhập</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/auth.js"></script>
+  <script>
+    // Initialize icons
+    lucide.createIcons();
+
+    // Toggle password visibility
+    function togglePasswordVisibility() {
+      const passInput = document.getElementById('password');
+      const eyeIcon = document.getElementById('eye-icon');
+      if (passInput.type === 'password') {
+        passInput.type = 'text';
+        eyeIcon.setAttribute('data-lucide', 'eye-off');
+      } else {
+        passInput.type = 'password';
+        eyeIcon.setAttribute('data-lucide', 'eye');
+      }
+      lucide.createIcons();
+    }
+
+    // Quick Login Admin
+    function quickLoginAdmin() {
+      document.getElementById('username').value = 'admin';
+      document.getElementById('password').value = '123456';
+      submitLogin();
+    }
+
+    // Quick Login User
+    function quickLoginUser() {
+      document.getElementById('username').value = 'user';
+      document.getElementById('password').value = '123';
+      submitLogin();
+    }
+
+    // Handle Form Submit
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      submitLogin();
+    }
+
+    function submitLogin() {
+      const usernameInput = document.getElementById('username').value;
+      const passwordInput = document.getElementById('password').value;
+      const alertEl = document.getElementById('login-alert');
+      const submitBtn = document.getElementById('submit-btn');
+
+      // Call auth module
+      const res = login(usernameInput, passwordInput);
+
+      if (res.success) {
+        alertEl.className = 'p-4 rounded-xl text-sm font-medium border bg-emerald-50 border-emerald-200 text-emerald-800 animate-fade-in';
+        alertEl.innerHTML = `
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
+            <span>${res.message}</span>
+          </div>
+        `;
+        alertEl.classList.remove('hidden');
+        lucide.createIcons();
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `
+          <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+          </svg>
+          Đang chuyển hướng...
+        `;
+
+        setTimeout(() => {
+          window.location.href = res.redirectUrl;
+        }, 600);
+      } else {
+        alertEl.className = 'p-4 rounded-xl text-sm font-medium border bg-rose-50 border-rose-200 text-rose-800 animate-fade-in';
+        alertEl.innerHTML = `
+          <div class="flex items-center gap-2">
+            <i data-lucide="alert-circle" class="w-5 h-5 text-rose-600"></i>
+            <span>${res.message}</span>
+          </div>
+        `;
+        alertEl.classList.remove('hidden');
+        lucide.createIcons();
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "ecommerce-fashion-platform",
+  "version": "1.0.0",
+  "description": "Nền tảng E-Commerce thời trang với trang đăng nhập phân quyền Admin/User và Dashboard quản lý doanh thu",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "fashion",
+    "admin-dashboard",
+    "devops"
+  ],
+  "author": "DevOps Team",
+  "license": "MIT"
+}
