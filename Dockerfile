@@ -4,6 +4,10 @@ FROM node:20-alpine
 # Đặt thư mục làm việc
 WORKDIR /app
 
+# Copy package.json và cài đặt dependencies
+COPY package*.json ./
+RUN npm install
+
 # Sao chép mã nguồn vào container
 COPY . .
 
