@@ -75,9 +75,9 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log(`====================================================`);
-  console.log(`🚀 E-Commerce Web Server đang chạy tại:`);
-  console.log(`👉 http://localhost:${PORT}`);
-  console.log(`👉 Admin Dashboard: http://localhost:${PORT}/admin-dashboard.html`);
-  console.log(`👉 User Shop: http://localhost:${PORT}/shop.html`);
+  console.log(`E-Commerce Web Server đang chạy tại:`);
+  console.log(`http://localhost:${PORT}`);
+  console.log(`Admin Dashboard: http://localhost:${PORT}/admin-dashboard.html`);
+  console.log(`User Shop: http://localhost:${PORT}/shop.html`);
   console.log(`====================================================`);
 });
