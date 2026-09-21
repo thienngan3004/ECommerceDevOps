@@ -28,21 +28,21 @@
     }
   </script>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col selection:bg-indigo-500 selection:text-black">
 
   <!-- Top Announcement Bar -->
-  <div class="bg-slate-950 text-white text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
+  <div class="bg-slate-950 text-black text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
     <span class="px-2 py-0.5 rounded-full bg-indigo-600 text-[10px] font-bold uppercase">Ưu đãi</span>
     <span>🔥 Miễn phí giao hàng toàn quốc cho đơn hàng từ <strong>500.000₫</strong> • Nhập mã <strong class="text-amber-400">LUXE2026</strong> giảm thêm 10%</span>
   </div>
 
   <!-- Main Navbar -->
-  <header class="bg-white/90 backdrop-blur-md sticky top-0 z-30 border-b border-gray-100 shadow-sm">
+  <header class="bg-black/90 backdrop-blur-md sticky top-0 z-30 border-b border-gray-100 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Brand Logo -->
       <a href="shop.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-2xl bg-indigo-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25">
+        <div class="w-10 h-10 rounded-2xl bg-indigo-600 flex items-center justify-center text-black shadow-lg shadow-indigo-500/25">
           <i data-lucide="sparkles" class="w-5 h-5"></i>
         </div>
         <div>
@@ -62,7 +62,7 @@
             id="search-input"
             oninput="handleSearch(this.value)"
             placeholder="Tìm kiếm áo sơ mi, áo thun, blazer, quần jean..." 
-            class="w-full pl-10 pr-4 py-2.5 bg-gray-100/80 hover:bg-gray-100 focus:bg-white border border-transparent focus:border-indigo-500 rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition"
+            class="w-full pl-10 pr-4 py-2.5 bg-gray-100/80 hover:bg-gray-100 focus:bg-black border border-transparent focus:border-indigo-500 rounded-full text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 transition"
           >
         </div>
       </div>
@@ -80,7 +80,7 @@
           <span class="hidden sm:inline text-xs font-bold">Giỏ hàng</span>
           <span 
             id="cart-badge-count" 
-            class="hidden absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-rose-600 text-white text-[11px] font-bold flex items-center justify-center shadow-md animate-bounce"
+            class="hidden absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-rose-600 text-black text-[11px] font-bold flex items-center justify-center shadow-md animate-bounce"
           >0</span>
         </button>
 
@@ -111,7 +111,7 @@
 
   <!-- Hero Section Thời Trang Cao Cấp -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-    <div class="relative rounded-3xl overflow-hidden min-h-[380px] sm:min-h-[440px] flex items-center p-8 sm:p-14 text-white shadow-xl bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 30%, rgbrgba(0, 0, 0, 0.4)url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&auto=format&fit=crop&q=80');">
+    <div class="relative rounded-3xl overflow-hidden min-h-[380px] sm:min-h-[440px] flex items-center p-8 sm:p-14 text-black shadow-xl bg-cover bg-center" style="background-image: linear-gradient(to right, rgba(15, 23, 42, 0.9) 30%, rgba(30, 27, 75, 0.4)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600&auto=format&fit=crop&q=80');">
       
       <div class="max-w-xl space-y-4 animate-fade-in z-10">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/30 backdrop-blur-md border border-indigo-400/30 text-xs font-bold text-indigo-300">
@@ -125,11 +125,11 @@
         </p>
         
         <div class="flex flex-wrap items-center gap-3 pt-2">
-          <a href="#products-list-section" class="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-bold text-sm shadow-lg shadow-indigo-600/30 transition flex items-center gap-2">
+          <a href="#products-list-section" class="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-black rounded-2xl font-bold text-sm shadow-lg shadow-indigo-600/30 transition flex items-center gap-2">
             <span>Mua Sắm Ngay</span>
             <i data-lucide="arrow-down" class="w-4 h-4"></i>
           </a>
-          <button onclick="setCategoryFilter('jacket')" class="px-5 py-3.5 bg-white/15 hover:bg-white/25 backdrop-blur-md text-white rounded-2xl font-semibold text-sm border border-white/20 transition">
+          <button onclick="setCategoryFilter('jacket')" class="px-5 py-3.5 bg-black/15 hover:bg-black/25 backdrop-blur-md text-black rounded-2xl font-semibold text-sm border border-black/20 transition">
             Áo Khoác & Blazer Hot Trend
           </button>
         </div>
@@ -137,15 +137,15 @@
 
       <!-- Feature badges bottom right -->
       <div class="hidden lg:flex absolute bottom-6 right-8 gap-4 z-10">
-        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/40 backdrop-blur-md text-xs font-semibold text-white/90 border border-white/10">
+        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/40 backdrop-blur-md text-xs font-semibold text-black/90 border border-black/10">
           <i data-lucide="truck" class="w-4 h-4 text-indigo-400"></i>
           <span>Giao nhanh 2h</span>
         </div>
-        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/40 backdrop-blur-md text-xs font-semibold text-white/90 border border-white/10">
+        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/40 backdrop-blur-md text-xs font-semibold text-black/90 border border-black/10">
           <i data-lucide="refresh-cw" class="w-4 h-4 text-emerald-400"></i>
           <span>Đổi trả 30 ngày</span>
         </div>
-        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/40 backdrop-blur-md text-xs font-semibold text-white/90 border border-white/10">
+        <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-black/40 backdrop-blur-md text-xs font-semibold text-black/90 border border-black/10">
           <i data-lucide="shield-check" class="w-4 h-4 text-amber-400"></i>
           <span>100% Chính hãng</span>
         </div>
@@ -169,42 +169,42 @@
         <button 
           data-category="all" 
           onclick="setCategoryFilter('all')" 
-          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-white shadow-sm transition whitespace-nowrap"
+          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-indigo-600 text-black shadow-sm transition blackspace-nowrap"
         >
           Tất cả
         </button>
         <button 
           data-category="shirt" 
           onclick="setCategoryFilter('shirt')" 
-          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition whitespace-nowrap"
+          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition blackspace-nowrap"
         >
           Áo sơ mi
         </button>
         <button 
           data-category="tshirt" 
           onclick="setCategoryFilter('tshirt')" 
-          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition whitespace-nowrap"
+          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition blackspace-nowrap"
         >
           Áo thun & Polo
         </button>
         <button 
           data-category="jacket" 
           onclick="setCategoryFilter('jacket')" 
-          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition whitespace-nowrap"
+          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition blackspace-nowrap"
         >
           Áo khoác & Blazer
         </button>
         <button 
           data-category="pants" 
           onclick="setCategoryFilter('pants')" 
-          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition whitespace-nowrap"
+          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition blackspace-nowrap"
         >
           Quần Jean / Tây
         </button>
         <button 
           data-category="dress" 
           onclick="setCategoryFilter('dress')" 
-          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition whitespace-nowrap"
+          class="cat-filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition blackspace-nowrap"
         >
           Váy đầm
         </button>
@@ -220,11 +220,11 @@
 
   <!-- Modal Chi Tiết Sản Phẩm -->
   <div id="modal-backdrop" onclick="closeProductModal()" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  <div id="product-detail-modal" class="fixed inset-x-4 top-[50%] -translate-y-[50%] max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl z-50 overflow-hidden hidden animate-fade-in border border-gray-100">
+  <div id="product-detail-modal" class="fixed inset-x-4 top-[50%] -translate-y-[50%] max-w-2xl mx-auto bg-black rounded-3xl shadow-2xl z-50 overflow-hidden hidden animate-fade-in border border-gray-100">
     <div class="relative grid grid-cols-1 sm:grid-cols-12 max-h-[85vh] overflow-y-auto">
       
       <!-- Nút đóng -->
-      <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/80 hover:bg-gray-200 text-gray-700 flex items-center justify-center transition shadow">
+      <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/80 hover:bg-gray-200 text-gray-700 flex items-center justify-center transition shadow">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
 
@@ -278,7 +278,7 @@
 
         <!-- Nút Thêm vào giỏ -->
         <div class="mt-8 pt-4 border-t border-gray-100 flex gap-3">
-          <button onclick="addModalProductToCart()" class="flex-1 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/25 transition flex items-center justify-center gap-2">
+          <button onclick="addModalProductToCart()" class="flex-1 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-black rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/25 transition flex items-center justify-center gap-2">
             <i data-lucide="shopping-bag" class="w-4 h-4"></i>
             <span>Thêm Vào Giỏ Hàng</span>
           </button>
@@ -291,7 +291,7 @@
 
   <!-- Cart Slide-Over Drawer -->
   <div id="cart-backdrop" onclick="toggleCartDrawer(false)" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
-  <aside id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
+  <aside id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-black z-50 shadow-2xl translate-x-full transition-transform duration-300 flex flex-col">
     
     <!-- Drawer Header -->
     <div class="p-5 border-b border-gray-100 flex items-center justify-between">
@@ -313,7 +313,7 @@
         </div>
         <p class="font-bold text-gray-700">Giỏ hàng của bạn đang trống</p>
         <p class="text-xs text-gray-400 mt-1">Hãy lướt xem các mẫu thời trang mới nhất và chọn món ưng ý nhé!</p>
-        <button onclick="toggleCartDrawer(false)" class="mt-4 px-4 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-xl hover:bg-indigo-700 transition">
+        <button onclick="toggleCartDrawer(false)" class="mt-4 px-4 py-2 bg-indigo-600 text-black text-xs font-semibold rounded-xl hover:bg-indigo-700 transition">
           Tiếp tục mua sắm
         </button>
       </div>
@@ -335,7 +335,7 @@
         </div>
       </div>
 
-      <button onclick="checkoutCart()" class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/25 transition flex items-center justify-center gap-2">
+      <button onclick="checkoutCart()" class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-black rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/25 transition flex items-center justify-center gap-2">
         <span>Đặt Hàng Ngay (COD)</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </button>
@@ -346,12 +346,12 @@
   </aside>
 
   <!-- Footer -->
-  <footer class="bg-slate-900 text-white pt-12 pb-8 mt-16 border-t border-slate-800">
+  <footer class="bg-slate-900 text-black pt-12 pb-8 mt-16 border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
       
       <div class="space-y-3">
         <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-white">
+          <div class="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center text-black">
             <i data-lucide="sparkles" class="w-4 h-4"></i>
           </div>
           <span class="text-xl font-black">LUXE FASHION</span>
@@ -364,18 +364,18 @@
       <div>
         <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-3">Về Chúng Tôi</h4>
         <ul class="space-y-2 text-xs text-gray-400">
-          <li><a href="#" class="hover:text-white transition">Giới thiệu thương hiệu</a></li>
-          <li><a href="#" class="hover:text-white transition">Hệ thống cửa hàng</a></li>
-          <li><a href="#" class="hover:text-white transition">Tuyển dụng</a></li>
+          <li><a href="#" class="hover:text-black transition">Giới thiệu thương hiệu</a></li>
+          <li><a href="#" class="hover:text-black transition">Hệ thống cửa hàng</a></li>
+          <li><a href="#" class="hover:text-black transition">Tuyển dụng</a></li>
         </ul>
       </div>
 
       <div>
         <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-3">Chính Sách & Hỗ Trợ</h4>
         <ul class="space-y-2 text-xs text-gray-400">
-          <li><a href="#" class="hover:text-white transition">Chính sách đổi trả 30 ngày</a></li>
-          <li><a href="#" class="hover:text-white transition">Hướng dẫn chọn kích cỡ (Size)</a></li>
-          <li><a href="#" class="hover:text-white transition">Chính sách giao hàng toàn quốc</a></li>
+          <li><a href="#" class="hover:text-black transition">Chính sách đổi trả 30 ngày</a></li>
+          <li><a href="#" class="hover:text-black transition">Hướng dẫn chọn kích cỡ (Size)</a></li>
+          <li><a href="#" class="hover:text-black transition">Chính sách giao hàng toàn quốc</a></li>
         </ul>
       </div>
 
@@ -383,7 +383,7 @@
         <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-3">Liên Hệ & Cổng Quản Trị</h4>
         <p class="text-xs text-gray-400 mb-2">Hotline: 1900 8888 (8:00 - 22:00)</p>
         <div class="pt-2">
-          <a href="admin-dashboard.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-indigo-300 transition">
+          <a href="admin-dashboard.html" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/10 hover:bg-black/20 text-xs font-semibold text-indigo-300 transition">
             <i data-lucide="shield" class="w-3.5 h-3.5"></i>
             <span>Dành cho Quản Trị Viên</span>
           </a>
