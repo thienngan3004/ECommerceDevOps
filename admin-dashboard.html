@@ -10,8 +10,6 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex">
 
@@ -38,7 +36,7 @@
         <a href="#orders-section" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition">
           <i data-lucide="shopping-cart" class="w-5 h-5"></i>
           <span>Quản lý đơn hàng</span>
-          <span class="ml-auto text-xs px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 font-bold">12 mới</span>
+          <span id="sidebar-orders-badge" class="ml-auto text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold">5 cần xử lý</span>
         </a>
         <a href="#products-section" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-slate-600 hover:bg-slate-100 hover:text-slate-900 transition">
           <i data-lucide="shirt" class="w-5 h-5"></i>
@@ -89,21 +87,22 @@
 
       <!-- Admin Actions / User Info -->
       <div class="flex items-center gap-4">
-        <!-- Quick Link Store Button -->
         <a href="shop.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-xl text-xs font-bold transition">
           <i data-lucide="shopping-bag" class="w-4 h-4"></i>
           <span>Giao diện Shop</span>
         </a>
 
-        <!-- Notifications -->
         <button class="relative p-2.5 rounded-xl text-slate-500 hover:bg-slate-100 transition">
           <i data-lucide="bell" class="w-5 h-5"></i>
           <span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-rose-500 ring-2 ring-white"></span>
         </button>
 
-        <!-- Current Admin Avatar & Dropdown -->
         <div id="navbar-user-info" class="flex items-center gap-3 pl-2 border-l border-slate-200">
-          <!-- Loaded dynamically from auth.js -->
+          <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white font-bold flex items-center justify-center text-xs">AD</div>
+          <div class="hidden sm:block text-left">
+            <span class="text-xs font-bold text-slate-900 block">Thien Ngan</span>
+            <span class="text-[10px] text-indigo-600 font-semibold">Super Admin</span>
+          </div>
         </div>
       </div>
     </header>
@@ -129,9 +128,7 @@
 
       <!-- 4 Khối Chỉ Số KPI Tài Chính -->
       <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-        
-        <!-- KPI 1: Tổng doanh thu -->
-        <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition">
+        <div class="p-5 rounded-2xl bg-white border border-slate-200/85 shadow-sm hover:shadow-md transition">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Tổng doanh thu</span>
             <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
@@ -145,8 +142,7 @@
           </div>
         </div>
 
-        <!-- KPI 2: Tổng đơn hàng -->
-        <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition">
+        <div class="p-5 rounded-2xl bg-white border border-slate-200/85 shadow-sm hover:shadow-md transition">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Tổng đơn hàng</span>
             <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
@@ -160,8 +156,7 @@
           </div>
         </div>
 
-        <!-- KPI 3: Khách hàng mới -->
-        <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition">
+        <div class="p-5 rounded-2xl bg-white border border-slate-200/85 shadow-sm hover:shadow-md transition">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">Khách hàng mới</span>
             <div class="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center">
@@ -175,8 +170,7 @@
           </div>
         </div>
 
-        <!-- KPI 4: Giá trị đơn trung bình -->
-        <div class="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md transition">
+        <div class="p-5 rounded-2xl bg-white border border-slate-200/85 shadow-sm hover:shadow-md transition">
           <div class="flex items-center justify-between mb-3">
             <span class="text-xs font-bold text-slate-500 uppercase tracking-wider">AOV (TB/Đơn)</span>
             <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
@@ -189,21 +183,17 @@
             <span>+3.8% giỏ hàng</span>
           </div>
         </div>
-
       </div>
 
       <!-- Khu vực Biểu Đồ Doanh Thu & Cơ Cấu -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        
-        <!-- Biểu đồ doanh thu chính (8 cột) -->
-        <div class="lg:col-span-8 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        <div class="lg:col-span-8 bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm flex flex-col justify-between">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
               <h3 class="text-base font-bold text-slate-900">Biểu đồ tăng trưởng doanh thu</h3>
               <p class="text-xs text-slate-500">Phân tích dòng tiền thu về qua các tháng trong năm</p>
             </div>
             
-            <!-- Bộ lọc thời gian -->
             <div class="flex items-center bg-slate-100 p-1 rounded-xl gap-1">
               <button onclick="switchRevenuePeriod('week', this)" class="period-btn px-3 py-1.5 text-xs font-medium rounded-lg text-slate-600 hover:bg-white transition">Tuần</button>
               <button onclick="switchRevenuePeriod('month', this)" class="period-btn px-3 py-1.5 text-xs font-medium rounded-lg text-slate-600 hover:bg-white transition">Tháng</button>
@@ -216,8 +206,7 @@
           </div>
         </div>
 
-        <!-- Biểu đồ phân bổ danh mục (4 cột) -->
-        <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-slate-200/85 shadow-sm flex flex-col justify-between">
           <div>
             <h3 class="text-base font-bold text-slate-900">Cơ cấu doanh thu quần áo</h3>
             <p class="text-xs text-slate-500">Tỷ trọng đóng góp từ các danh mục thời trang</p>
@@ -231,23 +220,51 @@
             <span class="text-xs text-slate-500">Áo khoác & Áo sơ mi chiếm hơn <strong class="text-indigo-600">58%</strong> tổng doanh số</span>
           </div>
         </div>
-
       </div>
 
       <!-- Bảng Đơn Hàng Mới & Top Sản Phẩm Bán Chạy -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6" id="orders-section">
         
-        <!-- Bảng Đơn Hàng Gần Đây (8 cột) -->
-        <div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden flex flex-col">
-          <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+        <!-- Bảng Đơn Hàng Gần Đây -->
+        <div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200/85 shadow-sm overflow-hidden flex flex-col">
+          <div class="p-5 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h3 class="text-base font-bold text-slate-900">Đơn hàng thời trang gần đây</h3>
-              <p class="text-xs text-slate-500">Danh sách các đơn đặt hàng mới nhất cần xử lý</p>
+              <div class="flex items-center gap-2">
+                <h3 class="text-base font-bold text-slate-900">Đơn hàng thời trang gần đây</h3>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200/60">
+                  <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse mr-1.5"></span>
+                  <span id="count-filter-action">5</span> đơn cần xử lý
+                </span>
+              </div>
+              <p class="text-xs text-slate-500 mt-0.5">Danh sách các đơn đặt hàng mới nhất cần xử lý</p>
             </div>
-            <a href="shop.html" class="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1">
+            <a href="shop.html" class="text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl transition flex items-center gap-1.5 self-start sm:self-auto">
               <span>Tạo đơn tại shop</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
+          </div>
+
+          <!-- Bộ lọc trạng thái đơn hàng -->
+          <div class="px-5 py-2.5 bg-slate-50/70 border-b border-slate-100 flex items-center gap-1.5 overflow-x-auto scrollbar-none">
+            <button onclick="filterOrders('all', this)" class="order-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition whitespace-nowrap">
+              Tất cả (<span id="count-filter-all">12</span>)
+            </button>
+            <button onclick="filterOrders('needs_action', this)" class="order-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              Cần xử lý (<span id="count-filter-action-tab">5</span>)
+            </button>
+            <button onclick="filterOrders('shipping', this)" class="order-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+              Đang giao (<span id="count-filter-shipping">3</span>)
+            </button>
+            <button onclick="filterOrders('completed', this)" class="order-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Đã giao (<span id="count-filter-completed">3</span>)
+            </button>
+            <button onclick="filterOrders('cancelled', this)" class="order-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span>
+              Đã hủy (<span id="count-filter-cancelled">1</span>)
+            </button>
           </div>
 
           <div class="overflow-x-auto flex-1">
@@ -264,14 +281,14 @@
                 </tr>
               </thead>
               <tbody id="recent-orders-body">
-                <!-- Loaded dynamically by dashboard.js -->
+                <!-- Rendered dynamically -->
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- Top Sản Phẩm Bán Chạy (4 cột) -->
-        <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-200/80 shadow-sm p-5 flex flex-col" id="products-section">
+        <!-- Top Sản Phẩm Bán Chạy -->
+        <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-200/85 shadow-sm p-5 flex flex-col" id="products-section">
           <div class="flex items-center justify-between mb-4">
             <div>
               <h3 class="text-base font-bold text-slate-900">Top Sản Phẩm Bán Chạy</h3>
@@ -281,7 +298,7 @@
           </div>
 
           <div class="space-y-3 flex-1" id="top-products-list">
-            <!-- Loaded dynamically by dashboard.js -->
+            <!-- Rendered dynamically -->
           </div>
         </div>
 
@@ -296,12 +313,311 @@
 
   </div>
 
-  <!-- Scripts -->
-  <script src="assets/js/auth.js"></script>
-  <script src="assets/js/dashboard.js"></script>
+  <!-- Modal Chi Tiết Đơn Hàng -->
+  <div id="order-modal-backdrop" onclick="closeOrderDetailModal()" class="fixed inset-0 bg-black/50 backdrop-blur-xs z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <div id="order-detail-modal" class="fixed inset-x-4 top-[50%] -translate-y-[50%] max-w-2xl mx-auto bg-white rounded-3xl shadow-2xl z-50 overflow-hidden hidden animate-fade-in border border-slate-100 flex flex-col max-h-[90vh]">
+    <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+          <i data-lucide="package-check" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h3 class="text-base font-extrabold text-slate-900 font-mono" id="modal-order-id">ORD-8949</h3>
+            <span id="modal-order-status-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold">Chờ xác nhận</span>
+          </div>
+          <p class="text-xs text-slate-500 mt-0.5">Thời gian đặt: <span id="modal-order-time" class="font-medium text-slate-700"></span></p>
+        </div>
+      </div>
+      <button onclick="closeOrderDetailModal()" class="w-9 h-9 rounded-xl hover:bg-slate-200/70 text-slate-500 hover:text-slate-800 flex items-center justify-center transition">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+    </div>
+
+    <div class="p-6 overflow-y-auto space-y-5 text-sm">
+      <div class="bg-slate-50/80 rounded-2xl p-4 border border-slate-100 space-y-3">
+        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
+          <i data-lucide="user" class="w-4 h-4 text-indigo-600"></i>
+          Thông tin khách hàng & Giao vận
+        </h4>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-slate-400 block">Họ và tên:</span>
+            <span id="modal-order-customer" class="font-bold text-slate-800 text-sm"></span>
+          </div>
+          <div>
+            <span class="text-slate-400 block">Số điện thoại:</span>
+            <span id="modal-order-phone" class="font-bold text-slate-800 font-mono"></span>
+          </div>
+          <div>
+            <span class="text-slate-400 block">Email:</span>
+            <span id="modal-order-email" class="text-slate-700"></span>
+          </div>
+          <div>
+            <span class="text-slate-400 block">Phương thức thanh toán:</span>
+            <span id="modal-order-payment" class="font-semibold text-indigo-600"></span>
+          </div>
+          <div class="sm:col-span-2">
+            <span class="text-slate-400 block">Địa chỉ nhận hàng:</span>
+            <span id="modal-order-address" class="font-medium text-slate-800"></span>
+          </div>
+          <div class="sm:col-span-2">
+            <span class="text-slate-400 block">Ghi chú đơn hàng:</span>
+            <span id="modal-order-note" class="italic text-slate-600"></span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+          <i data-lucide="shopping-bag" class="w-4 h-4 text-indigo-600"></i>
+          Sản phẩm trong đơn đặt hàng
+        </h4>
+        <div id="modal-order-items-list" class="divide-y divide-slate-100 border border-slate-100 rounded-2xl p-3 bg-white">
+          <!-- Items populated here -->
+        </div>
+      </div>
+
+      <div class="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-100 flex items-center justify-between">
+        <div>
+          <span class="text-xs text-indigo-800 font-medium">Tổng giá trị đơn hàng</span>
+          <p class="text-[11px] text-slate-500">Đã bao gồm VAT & Miễn phí vận chuyển toàn quốc</p>
+        </div>
+        <div class="text-right">
+          <span id="modal-order-total" class="text-2xl font-black text-indigo-600"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between gap-3">
+      <button onclick="window.print()" class="px-3.5 py-2 rounded-xl text-slate-600 hover:bg-slate-200 text-xs font-semibold transition flex items-center gap-1.5 border border-slate-200">
+        <i data-lucide="printer" class="w-4 h-4"></i> In phiếu giao hàng
+      </button>
+
+      <div class="flex items-center gap-2">
+        <button onclick="closeOrderDetailModal()" class="px-4 py-2 rounded-xl text-slate-600 hover:bg-slate-200 text-xs font-semibold transition">
+          Đóng
+        </button>
+        <div id="modal-order-action-btn"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Xử Lý Toàn Bộ Dữ Liệu & Biểu Đồ -->
   <script>
+    // --- MOCK DỮ LIỆU ĐƠN HÀNG THỜI TRANG ---
+    const mockOrders = [
+      {
+        id: "ORD-8949",
+        customer: "Nguyễn Văn An",
+        phone: "0905123456",
+        email: "an.nguyen@gmail.com",
+        payment: "Chuyển khoản QR (SePay)",
+        address: "123 Lê Duẩn, Phường Thạch Thang, Q. Hải Châu, Đà Nẵng",
+        note: "Giao giờ hành chính giúp mình nhé.",
+        time: "Hôm nay, 14:15",
+        status: "needs_action",
+        statusText: "Chờ xác nhận",
+        statusClass: "bg-amber-100 text-amber-800 border-amber-200",
+        total: "1.250.000₫",
+        items: [
+          { name: "Áo sơ mi Oxford nam cao cấp", size: "L", color: "Trắng", quantity: 1, price: "450.000₫" },
+          { name: "Quần âu nam công sở dáng suông", size: "32", color: "Đen", quantity: 1, price: "800.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8948",
+        customer: "Trần Thị Mai",
+        phone: "0918987654",
+        email: "maitran@yahoo.com",
+        payment: "Thanh toán khi nhận hàng (COD)",
+        address: "45 Nguyễn Văn Linh, Q. Thanh Khê, Đà Nẵng",
+        note: "Kiểm tra hàng trước khi nhận.",
+        time: "Hôm nay, 11:30",
+        status: "needs_action",
+        statusText: "Chờ xác nhận",
+        statusClass: "bg-amber-100 text-amber-800 border-amber-200",
+        total: "680.000₫",
+        items: [
+          { name: "Đầm maxi hoa nhí dáng dài dự tiệc", size: "S", color: "Xanh pastel", quantity: 1, price: "680.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8947",
+        customer: "Lê Hoàng Long",
+        phone: "0935111222",
+        email: "lhlong99@gmail.com",
+        payment: "Ví MoMo",
+        address: "78 Điện Biên Phủ, Q. Thanh Khê, Đà Nẵng",
+        note: "",
+        time: "Hôm nay, 09:10",
+        status: "needs_action",
+        statusText: "Chờ xác nhận",
+        statusClass: "bg-amber-100 text-amber-800 border-amber-200",
+        total: "1.450.000₫",
+        items: [
+          { name: "Áo khoác gió bomber thể thao chống nước", size: "XL", color: "Xanh rêu", quantity: 1, price: "950.000₫" },
+          { name: "Áo thun cotton basic form rộng", size: "L", color: "Đen", quantity: 2, price: "250.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8946",
+        customer: "Phạm Quỳnh Nga",
+        phone: "0977333444",
+        email: "nga.pq@gmail.com",
+        payment: "Chuyển khoản QR (SePay)",
+        address: "12 Phạm Văn Đồng, Q. Sơn Trà, Đà Nẵng",
+        note: "Giao gấp buổi sáng giùm shop.",
+        time: "Hôm qua, 16:45",
+        status: "needs_action",
+        statusText: "Chờ xác nhận",
+        statusClass: "bg-amber-100 text-amber-800 border-amber-200",
+        total: "520.000₫",
+        items: [
+          { name: "Chân váy chữ A dáng ngắn công sở", size: "M", color: "Be", quantity: 1, price: "320.000₫" },
+          { name: "Áo croptop dệt kim ôm sát", size: "Free", color: "Trắng", quantity: 1, price: "200.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8945",
+        customer: "Vũ Minh Tuấn",
+        phone: "0988555666",
+        email: "tuanvm@fpt.edu.vn",
+        payment: "Thẻ Visa / Mastercard",
+        address: "56 Nguyễn Hữu Thọ, Q. Hải Châu, Đà Nẵng",
+        note: "",
+        time: "Hôm qua, 14:20",
+        status: "needs_action",
+        statusText: "Chờ xác nhận",
+        statusClass: "bg-amber-100 text-amber-800 border-amber-200",
+        total: "1.890.000₫",
+        items: [
+          { name: "Bộ vest nam công sở cao cấp 2 mảnh", size: "50", color: "Xanh navy", quantity: 1, price: "1.890.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8944",
+        customer: "Hoàng Gia Hân",
+        phone: "0903999888",
+        email: "hanhg@gmail.com",
+        payment: "Chuyển khoản QR",
+        address: "90 Bạch Đằng, Q. Hải Châu, Đà Nẵng",
+        note: "Gói quà giúp mình nhé.",
+        time: "10/10/2026",
+        status: "shipping",
+        statusText: "Đang giao hàng",
+        statusClass: "bg-blue-100 text-blue-800 border-blue-200",
+        total: "750.000₫",
+        items: [
+          { name: "Áo blazer nữ thiết kế dáng suông", size: "M", color: "Hồng pastel", quantity: 1, price: "750.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8943",
+        customer: "Đặng Quốc Bảo",
+        phone: "0914222333",
+        email: "baodq@gmail.com",
+        payment: "COD",
+        address: "15 Ông Ích Khiêm, Q. Hải Châu, Đà Nẵng",
+        note: "",
+        time: "09/10/2026",
+        status: "shipping",
+        statusText: "Đang giao hàng",
+        statusClass: "bg-blue-100 text-blue-800 border-blue-200",
+        total: "420.000₫",
+        items: [
+          { name: "Quần short kaki nam túi hộp năng động", size: "31", color: "Xám", quantity: 1, price: "420.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8942",
+        customer: "Bùi Thị Thu Hà",
+        phone: "0932444555",
+        email: "habui@gmail.com",
+        payment: "MoMo",
+        address: "22 Trường Chinh, Q. Cẩm Lệ, Đà Nẵng",
+        note: "",
+        time: "08/10/2026",
+        status: "shipping",
+        statusText: "Đang giao hàng",
+        statusClass: "bg-blue-100 text-blue-800 border-blue-200",
+        total: "1.100.000₫",
+        items: [
+          { name: "Áo khoác dạ tweed nữ sang chảnh", size: "S", color: "Đỏ", quantity: 1, price: "1.100.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8941",
+        customer: "Ngô Thanh Vân",
+        phone: "0968123123",
+        email: "vanngothanh@gmail.com",
+        payment: "Chuyển khoản QR",
+        address: "88 Núi Thành, Q. Hải Châu, Đà Nẵng",
+        note: "",
+        time: "07/10/2026",
+        status: "completed",
+        statusText: "Đã giao hàng",
+        statusClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
+        total: "890.000₫",
+        items: [
+          { name: "Đầm suông midi cổ V thanh lịch", size: "M", color: "Đen", quantity: 1, price: "890.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8940",
+        customer: "Lý Hải",
+        phone: "0905777888",
+        email: "lyhai@gmail.com",
+        payment: "COD",
+        address: "34 Hoàng Diệu, Q. Hải Châu, Đà Nẵng",
+        note: "",
+        time: "06/10/2026",
+        status: "completed",
+        statusText: "Đã giao hàng",
+        statusClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
+        total: "550.000₫",
+        items: [
+          { name: "Áo sơ mi trắng dài tay trơn", size: "L", color: "Trắng", quantity: 1, price: "550.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8939",
+        customer: "Đỗ Mỹ Linh",
+        phone: "0912333444",
+        email: "mylinh@gmail.com",
+        payment: "Chuyển khoản QR",
+        address: "67 Lê Văn Hiến, Q. Ngũ Hành Sơn, Đà Nẵng",
+        note: "",
+        time: "05/10/2026",
+        status: "completed",
+        statusText: "Đã giao hàng",
+        statusClass: "bg-emerald-100 text-emerald-800 border-emerald-200",
+        total: "1.300.000₫",
+        items: [
+          { name: "Set bộ áo vest kèm chân váy thời trang", size: "S", color: "Hồng", quantity: 1, price: "1.300.000₫" }
+        ]
+      },
+      {
+        id: "ORD-8938",
+        customer: "Cao Thái Sơn",
+        phone: "0989111000",
+        email: "caothaison@gmail.com",
+        payment: "COD",
+        address: "19 Đống Đa, Q. Hải Châu, Đà Nẵng",
+        note: "Khách hủy do đặt nhầm size.",
+        time: "04/10/2026",
+        status: "cancelled",
+        statusText: "Đã hủy",
+        statusClass: "bg-rose-100 text-rose-800 border-rose-200",
+        total: "480.000₫",
+        items: [
+          { name: "Áo thun polo nam cổ bẻ kẻ sọc", size: "M", color: "Xanh navy", quantity: 1, price: "480.000₫" }
+        ]
+      }
+    ];
+
     document.addEventListener('DOMContentLoaded', () => {
-      // Set current date
+      // 1. Set current date
       const dateEl = document.getElementById('current-time-str');
       if (dateEl) {
         const now = new Date();
@@ -313,10 +629,241 @@
         });
       }
 
-      // Initialize admin dashboard
-      initDashboard();
+      // 2. Render orders & top products
+      renderOrders(mockOrders);
+      updateOrderCounters();
+      renderTopProducts();
+
+      // 3. Initialize Charts
+      initCharts();
+
+      // 4. Initialize Lucide icons
       lucide.createIcons();
     });
+
+    function renderOrders(ordersToRender) {
+      const tbody = document.getElementById('recent-orders-body');
+      if (!tbody) return;
+
+      if (ordersToRender.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-slate-400 text-xs">Không tìm thấy đơn hàng phù hợp.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = ordersToRender.map(order => `
+        <tr class="hover:bg-slate-50/80 transition border-b border-slate-100 text-xs">
+          <td class="py-3.5 px-4 font-mono font-bold text-indigo-600">${order.id}</td>
+          <td class="py-3.5 px-4 font-semibold text-slate-800">${order.customer}</td>
+          <td class="py-3.5 px-4 text-slate-600 truncate max-w-[200px]">${order.items[0].name} ${order.items.length > 1 ? `<span class="text-xs text-indigo-600 font-bold">(+${order.items.length - 1})</span>` : ''}</td>
+          <td class="py-3.5 px-4 font-black text-slate-900">${order.total}</td>
+          <td class="py-3.5 px-4 text-slate-500">${order.time}</td>
+          <td class="py-3.5 px-4">
+            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold border ${order.statusClass}">${order.statusText}</span>
+          </td>
+          <td class="py-3.5 px-4 text-right">
+            <button onclick="openOrderDetail('${order.id}')" class="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold rounded-lg transition inline-flex items-center gap-1">
+              <span>Xem</span>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function filterOrders(status, btnElement) {
+      document.querySelectorAll('.order-filter-btn').forEach(btn => {
+        btn.className = "order-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium text-slate-600 hover:bg-slate-100 transition whitespace-nowrap flex items-center gap-1.5";
+      });
+      btnElement.className = "order-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm transition whitespace-nowrap flex items-center gap-1.5";
+
+      if (status === 'all') {
+        renderOrders(mockOrders);
+      } else {
+        const filtered = mockOrders.filter(o => o.status === status);
+        renderOrders(filtered);
+      }
+    }
+
+    function updateOrderCounters() {
+      const allCount = mockOrders.length;
+      const actionCount = mockOrders.filter(o => o.status === 'needs_action').length;
+      const shippingCount = mockOrders.filter(o => o.status === 'shipping').length;
+      const completedCount = mockOrders.filter(o => o.status === 'completed').length;
+      const cancelledCount = mockOrders.filter(o => o.status === 'cancelled').length;
+
+      document.getElementById('count-filter-all').textContent = allCount;
+      document.getElementById('count-filter-action').textContent = actionCount;
+      document.getElementById('count-filter-action-tab').textContent = actionCount;
+      document.getElementById('sidebar-orders-badge').textContent = `${actionCount} cần xử lý`;
+      document.getElementById('count-filter-shipping').textContent = shippingCount;
+      document.getElementById('count-filter-completed').textContent = completedCount;
+      document.getElementById('count-filter-cancelled').textContent = cancelledCount;
+    }
+
+    function openOrderDetail(orderId) {
+      const order = mockOrders.find(o => o.id === orderId);
+      if (!order) return;
+
+      document.getElementById('modal-order-id').textContent = order.id;
+      document.getElementById('modal-order-time').textContent = order.time;
+      document.getElementById('modal-order-customer').textContent = order.customer;
+      document.getElementById('modal-order-phone').textContent = order.phone;
+      document.getElementById('modal-order-email').textContent = order.email;
+      document.getElementById('modal-order-payment').textContent = order.payment;
+      document.getElementById('modal-order-address').textContent = order.address;
+      document.getElementById('modal-order-note').textContent = order.note || "Không có ghi chú";
+      document.getElementById('modal-order-total').textContent = order.total;
+
+      const statusBadge = document.getElementById('modal-order-status-badge');
+      statusBadge.className = `px-2.5 py-0.5 rounded-full text-xs font-bold border ${order.statusClass}`;
+      statusBadge.textContent = order.statusText;
+
+      const itemsContainer = document.getElementById('modal-order-items-list');
+      itemsContainer.innerHTML = order.items.map(item => `
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 font-bold text-xs">Áo/Q</div>
+            <div>
+              <h5 class="font-bold text-slate-800 text-xs">${item.name}</h5>
+              <span class="text-[11px] text-slate-500">Phân loại: Size ${item.size}, Màu ${item.color} | SL: ${item.quantity}</span>
+            </div>
+          </div>
+          <span class="font-black text-xs text-slate-900">${item.price}</span>
+        </div>
+      `).join('');
+
+      const actionBtnContainer = document.getElementById('modal-order-action-btn');
+      if (order.status === 'needs_action') {
+        actionBtnContainer.innerHTML = `<button onclick="updateOrderStatus('${order.id}', 'shipping')" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-md transition">Xác nhận & Giao hàng</button>`;
+      } else if (order.status === 'shipping') {
+        actionBtnContainer.innerHTML = `<button onclick="updateOrderStatus('${order.id}', 'completed')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-md transition">Xác nhận Đã giao</button>`;
+      } else {
+        actionBtnContainer.innerHTML = '';
+      }
+
+      const backdrop = document.getElementById('order-modal-backdrop');
+      const modal = document.getElementById('order-detail-modal');
+      backdrop.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.remove('hidden');
+    }
+
+    function closeOrderDetailModal() {
+      const backdrop = document.getElementById('order-modal-backdrop');
+      const modal = document.getElementById('order-detail-modal');
+      backdrop.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.add('hidden');
+    }
+
+    function updateOrderStatus(orderId, newStatus) {
+      const order = mockOrders.find(o => o.id === orderId);
+      if (!order) return;
+      
+      if (newStatus === 'shipping') {
+        order.status = 'shipping';
+        order.statusText = 'Đang giao hàng';
+        order.statusClass = 'bg-blue-100 text-blue-800 border-blue-200';
+      } else if (newStatus === 'completed') {
+        order.status = 'completed';
+        order.statusText = 'Đã giao hàng';
+        order.statusClass = 'bg-emerald-100 text-emerald-800 border-emerald-200';
+      }
+
+      renderOrders(mockOrders);
+      updateOrderCounters();
+      closeOrderDetailModal();
+    }
+
+    function renderTopProducts() {
+      const container = document.getElementById('top-products-list');
+      if (!container) return;
+
+      const topProducts = [
+        { name: "Áo sơ mi Oxford nam cao cấp", category: "Áo sơ mi", sold: "342 cái", revenue: "15.380.000₫", imgBg: "bg-indigo-50 text-indigo-600" },
+        { name: "Quần âu nam công sở dáng suông", category: "Quần âu", sold: "285 cái", revenue: "22.800.000₫", imgBg: "bg-emerald-50 text-emerald-600" },
+        { name: "Áo khoác gió bomber thể thao", category: "Áo khoác", sold: "210 cái", revenue: "19.950.000₫", imgBg: "bg-amber-50 text-amber-600" },
+        { name: "Đầm maxi hoa nhí dáng dài", category: "Đầm thời trang", sold: "194 cái", revenue: "13.192.000₫", imgBg: "bg-rose-50 text-rose-600" },
+      ];
+
+      container.innerHTML = topProducts.map((p, idx) => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl hover:bg-slate-50 transition border border-slate-100/60">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl ${p.imgBg} flex items-center justify-center font-bold text-xs">#${idx + 1}</div>
+            <div>
+              <h4 class="text-xs font-bold text-slate-800">${p.name}</h4>
+              <span class="text-[11px] text-slate-400">Đã bán: ${p.sold}</span>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="text-xs font-black text-slate-900 block">${p.revenue}</span>
+            <span class="text-[10px] text-emerald-600 font-semibold">Doanh thu cao</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function initCharts() {
+      // Main Revenue Chart
+      const ctxRevenue = document.getElementById('revenueMainChart').getContext('2d');
+      new Chart(ctxRevenue, {
+        type: 'line',
+        data: {
+          labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10'],
+          datasets: [{
+            label: 'Doanh thu (VNĐ)',
+            data: [95000000, 110000000, 105000000, 125000000, 140000000, 135000000, 155000000, 165000000, 172000000, 185450000],
+            borderColor: '#4f46e5',
+            backgroundColor: 'rgba(79, 70, 229, 0.08)',
+            borderWidth: 3,
+            fill: true,
+            tension: 0.35,
+            pointBackgroundColor: '#4f46e5',
+            pointRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } },
+            x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+          }
+        }
+      });
+
+      // Category Pie Chart
+      const ctxCategory = document.getElementById('categoryPieChart').getContext('2d');
+      new Chart(ctxCategory, {
+        type: 'doughnut',
+        data: {
+          labels: ['Áo sơ mi', 'Quần âu & Kaki', 'Áo khoác', 'Đầm váy nữ', 'Khác'],
+          datasets: [{
+            data: [32, 22, 26, 12, 8],
+            backgroundColor: ['#4f46e5', '#10b981', '#f59e0b', '#f43f5e', '#cbd5e1'],
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 12 } }
+          },
+          cutout: '70%'
+        }
+      });
+    }
+
+    function switchRevenuePeriod(period, btn) {
+      document.querySelectorAll('.period-btn').forEach(b => {
+        b.className = "period-btn px-3 py-1.5 text-xs font-medium rounded-lg text-slate-600 hover:bg-white transition";
+      });
+      btn.className = "period-btn px-3 py-1.5 text-xs font-semibold rounded-lg bg-indigo-50 text-indigo-600 transition";
+    }
+
+    function logout() {
+      alert("Đăng xuất thành công khỏi hệ thống quản trị!");
+    }
   </script>
 </body>
 </html>
